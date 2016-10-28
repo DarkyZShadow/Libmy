@@ -3,13 +3,32 @@
 ** 
 ** Made by SOULIE Sean
 ** Login   <soulie_s@etna-alternance.net>
-** 
-** Started on  Thu Sep 29 01:44:48 2016 SOULIE Sean
-** Last update Thu Sep 29 09:10:15 2016 SOULIE Sean
+**
+** ---------------------------------------------------------------------- 
+**
+** Interruption 80h Fonction 04h                                                                       
+** EAX = 04h (fonction)                                                                                
+** EBX = Numéro de descripteur de flux (0 : stdin, 1 : stdout, 2 : stderr)                             
+** ECX = Adresse des datas                                                                             
+** EDX = Size en octet                                                                                 
+**                                                                                                     
+** http://www.gladir.com/LEXIQUE/INTR/int80f04.htm                                                     
 */
-#include <unistd.h>
 
-void	my_putchar(char c)
+void z_write(int output, void *buffer, int size)
 {
-  write(1, &c, 1);
+  unsigned int buff_addr;
+
+  buff_addr = (unsigned int)buffer;
+  __asm__
+  (
+    "movl $04, %%eax\n\t"
+    "movl %00, %%ebx\n\t"
+    "movl %01, %%ecx\n\t"
+    "movl %02, %%edx\n\t"
+    "int  $0x80\n\t"
+    :
+    : "r" (output), "r" (buff_addr), "r" (size)
+    : "%eax", "%ebx", "%ecx", "%edx"
+  );
 }
