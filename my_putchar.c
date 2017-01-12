@@ -15,11 +15,11 @@
 ** http://www.gladir.com/LEXIQUE/INTR/int80f04.htm                                                     
 */
 
-void z_write(int output, void *buffer, int size)
+void		my_write(int output, void *buffer, int size)
 {
-  unsigned int buff_addr;
+  unsigned int	buff_addr;
 
-  buff_addr = (unsigned int)buffer;
+  buff_addr = (long)buffer;
   __asm__
   (
     "movl $04, %%eax\n\t"
@@ -31,4 +31,9 @@ void z_write(int output, void *buffer, int size)
     : "r" (output), "r" (buff_addr), "r" (size)
     : "%eax", "%ebx", "%ecx", "%edx"
   );
+}
+
+void		my_putchar(char c)
+{
+	my_write(1, &c, 1);
 }
