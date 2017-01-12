@@ -9,20 +9,21 @@
 */
 #include <stdlib.h>
 
-int	my_strlen(char *str);
+int			my_strlen(char *str);
 
-char	*my_strdup(char *str)
+char		*my_strdup(char *str)
 {
-  int	i;
-  char	*result;
+	int		i;
+	char	*result;
 
-  result = malloc(sizeof(char) * my_strlen(str) + 1);
-  if (result == 0)
-    return 0;
-  while (str[i])
-  {
-    result[i] = str[i];
-    i++;
-  }
-  return result;
+	result = malloc(sizeof(char) * my_strlen(str) + 1);
+	if (result == 0)
+		return 0;
+	while (str[i])
+	{
+		result[i] = str[i];
+		i++;
+	}
+	return result;
 }
+

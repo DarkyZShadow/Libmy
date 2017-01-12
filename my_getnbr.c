@@ -8,27 +8,30 @@
 ** Last update Thu Sep 29 09:31:25 2016 SOULIE Sean
 */
 
-int	my_getnbr(char *str)
+int			my_getnbr(char *str)
 {
-  int	i;
-  int	count;
-  int	is_positive;
+	int		i;
+	int		count;
+	int		is_positive;
 
-  i = 0;
-  count = 0;
-  is_positive = 1;
-  if (str != 0)
-    while (str[i] != 0)
-    {
-      if (str[i] == '-' && count == 0)
-	is_positive = (is_positive == -1 ? 1 : -1);
-      else if (str[i] == '+' && count == 0)
-	is_positive = (is_positive == -1 ? -1 : 1);
-      else if (str[i] >= '0' && str[i] <= '9')
-	count = count * 10 + str[i] - '0';
-      else
-	break;
-      i++;
-    }
-  return count * is_positive;
+	i = 0;
+	count = 0;
+	is_positive = 1;
+	if (str != 0)
+	{
+		while (str[i] != 0)
+		{
+			if (str[i] == '-' && count == 0)
+				is_positive *= -1;
+			else if (str[i] == '+' && count == 0)
+				is_positive = (is_positive == -1 ? -1 : 1);
+			else if (str[i] >= '0' && str[i] <= '9')
+				count = count * 10 + str[i] - '0';
+			else
+				break;
+			i++;
+		}
+	}
+	return count * is_positive;
 }
+

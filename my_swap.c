@@ -8,11 +8,12 @@
 ** Last update Thu Sep 29 06:32:45 2016 SOULIE Sean
 */
 
-void	my_swap(int *a, int *b)
+void		my_swap(int *a, int *b)
 {
-  int	c;
+	int		c;
 
-  c = *a;
-  *a = *b;
-  *b = c;
+	c = *a;
+	*a = *b;
+	*b = c;
 }
+

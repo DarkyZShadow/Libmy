@@ -15,25 +15,26 @@
 ** http://www.gladir.com/LEXIQUE/INTR/int80f04.htm                                                     
 */
 
-void		my_write(int output, void *buffer, int size)
+void				my_write(int output, void *buffer, int size)
 {
-  unsigned int	buff_addr;
+	unsigned int	buff_addr;
 
-  buff_addr = (long)buffer;
-  __asm__
-  (
-    "movl $04, %%eax\n\t"
-    "movl %00, %%ebx\n\t"
-    "movl %01, %%ecx\n\t"
-    "movl %02, %%edx\n\t"
-    "int  $0x80\n\t"
-    :
-    : "r" (output), "r" (buff_addr), "r" (size)
-    : "%eax", "%ebx", "%ecx", "%edx"
-  );
+	buff_addr = (long)buffer;
+	__asm__
+	(
+		"movl $04, %%eax\n\t"
+		"movl %00, %%ebx\n\t"
+		"movl %01, %%ecx\n\t"
+		"movl %02, %%edx\n\t"
+		"int  $0x80\n\t"
+		:
+		: "r" (output), "r" (buff_addr), "r" (size)
+		: "%eax", "%ebx", "%ecx", "%edx"
+	);
 }
 
-void		my_putchar(char c)
+void				my_putchar(char c)
 {
 	my_write(1, &c, 1);
 }
+

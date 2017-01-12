@@ -8,12 +8,13 @@
 ** Last update Thu Sep 29 06:37:27 2016 SOULIE Sean
 */
 
-int	my_strlen(char *str)
+int			my_strlen(char *str)
 {
-  int	i;
+	int		i;
 
-  i = 0;
-  while (str[i] != '\0')
-    i++;
-  return i;
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return i;
 }
+

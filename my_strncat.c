@@ -8,20 +8,21 @@
 ** Last update Thu Sep 29 08:16:48 2016 SOULIE Sean
 */
 
-int	my_strlen(char *str);
+int			my_strlen(char *str);
 
-char	*my_strncat(char *dest, char *src, int n)
+char		*my_strncat(char *dest, char *src, int n)
 {
-  int i;
-  int count;
+	int		i;
+	int		count;
 
-  i = 0;
-  count = my_strlen(dest);
-  while (src[i] != 0 && i < n)
-  {
-    dest[count + i] = src[i];
-    i++;
-  }
-  dest[count + i] = 0;
-  return dest;
+	i = 0;
+	count = my_strlen(dest);
+	while (src[i] != 0 && i < n)
+	{
+		dest[count + i] = src[i];
+		i++;
+	}
+	dest[count + i] = 0;
+	return dest;
 }
+
