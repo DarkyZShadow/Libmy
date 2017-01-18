@@ -16,7 +16,7 @@ char		*my_strdup(char *str)
 	int		i;
 	char	*result;
 
-	result = malloc(sizeof(char) * my_strlen(str) + 1);
+	result = malloc(sizeof(char) * (my_strlen(str) + 1));
 	if (result == 0)
 		return 0;
 	while (str[i])
