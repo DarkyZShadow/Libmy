@@ -8,14 +8,14 @@
 ** Last update Thu Sep 29 06:32:20 2016 SOULIE Sean
 */
 
-void		my_putchar(char c);
+#include "common.h"
 
-void		my_putstr(char *str)
+void            my_putstr(char *str)
 {
-	int		i;
+    int         i;
 
-	i = 0;
-	while (str[i] != '\0')
-		my_putchar(str[i++]);
+    i = 0;
+    while (str[i] != '\0')
+        my_putchar(str[i++]);
 }
 

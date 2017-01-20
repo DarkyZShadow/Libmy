@@ -8,13 +8,15 @@
 ** Last update Thu Sep 29 06:37:27 2016 SOULIE Sean
 */
 
-int			my_strlen(char *str)
-{
-	int		i;
+#include "common.h"
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return i;
+int             my_strlen(char *str)
+{
+    int         i;
+
+    i = 0;
+    while (str[i] != '\0')
+        i++;
+    return i;
 }
 

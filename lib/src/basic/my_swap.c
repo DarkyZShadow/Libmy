@@ -8,12 +8,14 @@
 ** Last update Thu Sep 29 06:32:45 2016 SOULIE Sean
 */
 
-void		my_swap(int *a, int *b)
-{
-	int		c;
+#include "common.h"
 
-	c = *a;
-	*a = *b;
-	*b = c;
+void            my_swap(int *a, int *b)
+{
+    int         c;
+
+    c = *a;
+    *a = *b;
+    *b = c;
 }
 

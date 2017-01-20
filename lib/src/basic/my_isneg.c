@@ -8,8 +8,10 @@
 ** Last update Thu Sep 29 07:11:19 2016 SOULIE Sean
 */
 
-int		my_isneg(int n)
+#include "common.h"
+
+int     my_isneg(int n)
 {
-	return n < 0 ? 1 : 0;
+    return n < 0 ? 1 : 0;
 }
 

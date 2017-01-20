@@ -1,39 +1,42 @@
-CC	= 	gcc
-NAME	= 	libmy.a
-SRC	= 	my_putchar.c	\
-	  	my_isneg.c	\
-	  	my_put_nbr.c	\
-	  	my_swap.c	\
-	  	my_putstr.c	\
-	  	my_strlen.c	\
-	  	my_getnbr.c	\
-	  	my_strcpy.c	\
-	  	my_strncpy.c	\
-	  	my_strcmp.c	\
-	  	my_strncmp.c	\
-	  	my_strcat.c	\
-	  	my_strncat.c	\
-	  	my_strstr.c	\
-		my_strdup.c	\
-		my_str_to_wordtab.c
-OBJ	=	$(SRC:%.c=%.o)
-RM	= 	rm -f
-CFLAGS	= 	-W -Wall -Werror -ansi -pedantic
-LDFLAGS = 	-lmy
+CC			= 	gcc
+NAME		= 	libmy.a
+SRC			= 	src/utils/my_write.c          	\
+				src/basic/my_putchar.c			\
+	  			src/basic/my_isneg.c			\
+	  			src/basic/my_put_nbr.c			\
+	  			src/basic/my_swap.c				\
+	  			src/basic/my_putstr.c			\
+	  			src/basic/my_strlen.c			\
+	  			src/basic/my_getnbr.c			\
+	  			src/basic/my_strcpy.c			\
+	  			src/basic/my_strncpy.c			\
+	  			src/basic/my_strcmp.c			\
+	  			src/basic/my_strncmp.c			\
+	  			src/basic/my_strcat.c			\
+	  			src/basic/my_strncat.c			\
+	  			src/basic/my_strstr.c			\
+				src/basic/my_strdup.c			\
+				src/basic/my_str_to_wordtab.c
+OBJ			=	$(SRC:%.c=%.o)
+RM			= 	rm -f
+INCS        =   -Iinclude
+CFLAGS		= 	-W -Wall -Werror -ansi -pedantic $(INCS)
+LDFLAGS 	= 	-lmy $(INCS)
 
-$(NAME)	:	$(OBJ)
-		$(CC) $(SRC) -c $(LDFLAGS)
-		ar r $(NAME) $(OBJ)
-		ranlib $(NAME)
+$(NAME)		:	$(OBJ)
+				$(CC) $(SRC) -c $(LDFLAGS)
+				ar r $(NAME) $(OBJ)
+				ranlib $(NAME)
 
-all	:	$(NAME)
+all			:	$(NAME)
 
-clean	:
-		$(RM) $(OBJ)
+clean		:
+				$(RM) $(OBJ)
 
-fclean	:		clean
-		$(RM) $(NAME)
+fclean		:			clean
+				$(RM) $(NAME)
 
-re	:	fclean all
+re			:	fclean all
 
-.PHONY	:	re
+.PHONY		:	re
+
