@@ -27,6 +27,8 @@ int             main(int argc, char **argv)
         ptr = asm_strchr(ptr+1,'o');
     }
 
+
+
     return 0;
 }
 

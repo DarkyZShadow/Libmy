@@ -1,5 +1,5 @@
 ;
-; char              *strchr (const char *str, int c);
+; char              *strchr (const char *str, char c);
 ;
 BITS 64
 
@@ -12,9 +12,10 @@ asm_strchr:
 
 _loop:              ; Basic while
     INC RCX
-    CMP DWORD [RDI + RCX], 0x6F;ESI
-    JE _end
-    CMP DWORD [RDI + RCX], 0
+    
+    CMP BYTE [RDI + RCX], SIL
+    JE _finded
+    CMP BYTE [RDI + RCX], 0
     JNE _loop
     MOV RCX, 0
 
@@ -22,4 +23,8 @@ _end:
     MOV RAX, RCX    ; Return counter
     POP RCX
     RET
+
+_finded:
+    ADD RCX, RDI
+    JMP _end
 
