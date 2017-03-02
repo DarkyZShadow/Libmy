@@ -2,25 +2,30 @@
 #include <stdio.h>
 
 size_t          asm_strlen(const char *str);
-char            asm_strchr(const char *str, char c);
+char            *asm_strchr(const char *str, int c);
 
 int             main(int argc, char **argv)
 {
-    char        ptr;
+    char        *ptr;
     char        toto[]   = "Bonjour, je suis toto";
 
-    printf("Longeur de '%s' : %d\n", toto, strlen(toto));
-    printf("Longeur de '%s' : %d\n", toto, asm_strlen(toto));
-    printf("Longeur de '%s' : %d\n", "toto", strlen("toto"));
-    printf("Longeur de '%s' : %d\n", "toto", asm_strlen("toto"));
+    /* strlen */
+    printf("[ORI] Longeur de '%s' : %d\n", toto, strlen(toto));
+    printf("[ASM] Longeur de '%s' : %d\n\n", toto, asm_strlen(toto));
 
-    /*ptr = asm_strchr(toto, 'o');
-    printf("----> %p:%d:%c <---\n", &ptr, ptr, ptr);
-    /*while (ptr != 0)
+    /* strchr */
+    ptr = strchr(toto,'o');
+    while (ptr != NULL)
     {
-        printf("Charactere 'o' trouve a : %d\n", ptr-toto+1);
-        ptr = asm_strchr(ptr+1,'s');
-    }*/
+        printf("[ORI] Caractere 'o' trouve a : %d\n", ptr - toto + 1);
+        ptr = strchr(ptr+1,'o');
+    }
+    ptr = asm_strchr(toto, 'o');
+    while (ptr != NULL)
+    {
+        printf("[ASM] Caractere 'o' trouve a : %d\n", ptr - toto + 1);
+        ptr = asm_strchr(ptr+1,'o');
+    }
 
     return 0;
 }
