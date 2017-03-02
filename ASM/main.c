@@ -3,10 +3,12 @@
 
 size_t          asm_strlen(const char *str);
 char            *asm_strchr(const char *str, int c);
+void            asm_putchar(char c);
 
 int             main(int argc, char **argv)
 {
     char        *ptr;
+    char        c = '\n';
     char        toto[]   = "Bonjour, je suis toto";
 
     /* strlen */
@@ -27,7 +29,11 @@ int             main(int argc, char **argv)
         ptr = asm_strchr(ptr+1,'o');
     }
 
-
+    /* putchar */
+    printf("\n[ORI] Retour a la ligne.");
+    putchar(c);
+    printf("[ASM] Retour a la ligne.");
+    asm_putchar(c);
 
     return 0;
 }
