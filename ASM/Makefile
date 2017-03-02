@@ -1,18 +1,20 @@
-CC				=	gcc
 ASM				=	nasm
 NAME			=	libmy.a
 SRC				=	src/asm_strchr.asm			\
 					src/asm_strlen.asm
-OBJ				=	$(SRC:%.c=%.o)
-FLAGS			=	-f elf -g
+OBJ				=	$(SRC:.asm=.o)
+FLAGS			=	-f elf64 -g
 RM				=	rm -f
 
-$(NAME)			:	$(OBJ)
-					$(ASM) $(FLAGS) $(SRC)
-					ar r $(NAME) $(OBJ)
-					ranlib $(NAME)
+all             :   $(NAME)
 
-all				:	$(NAME)
+$(NAME)			:	$(OBJ)
+					ar rc $(NAME) $(OBJ)
+					ranlib $(NAME)
+					$(RM) $(OBJ)
+
+%.o : %.asm
+					$(ASM) $(FLAGS) -o $@ $<
 
 clean			:	
 					$(RM) $(OBJ)

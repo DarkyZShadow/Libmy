@@ -1,0 +1,24 @@
+CC          =   gcc
+NAME        =   test
+SRC         =   main.c
+OBJ         =   $(SRC:%.c=%.o)
+RM          =   rm -f
+INCS        =   -Iinclude
+# CFLAGS      =   -W -Wall -Werror -ansi -pedantic $(INCS)
+LDFLAGS     =   -L. -lmy $(INCS)
+
+all         :   $(NAME)
+
+$(NAME)     :   $(OBJ)
+				$(CC) $(SRC) $(LDFLAGS) -o $(NAME)
+
+clean       :
+				$(RM) $(OBJ)
+
+fclean      :           clean
+				$(RM) $(NAME)
+
+re          :   fclean all
+
+.PHONY      :   re
+

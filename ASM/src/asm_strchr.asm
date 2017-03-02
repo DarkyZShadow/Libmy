@@ -1,20 +1,21 @@
 ;
-; int             asm_strlen(char *str);
+; char              *asm_strchr(char *str, int character);
 ;
-BITS 32
+BITS 64
 
 SECTION .text
 GLOBAL asm_strchr
 
 asm_strchr:
-    MOV ECX, -1     ; Init counter
+    MOVZX RCX, DL    ; Init counter
+    JMP _end
 
 _loop:              ; Basic while
-    INC ECX
-    CMP BYTE [EAX + ECX], 0
+    INC RCX
+    CMP BYTE [RAX + RCX], 0
     JNE _loop
 
 _end:
-    MOV EAX, ECX    ; Return counter
+    MOV RAX, RCX    ; Return counter
     RET
 
