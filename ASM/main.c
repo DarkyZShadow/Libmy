@@ -4,6 +4,7 @@
 size_t          asm_strlen(const char *str);
 char            *asm_strchr(const char *str, int c);
 void            asm_putchar(char c);
+void            asm_putstr(char *str);
 
 int             main(int argc, char **argv)
 {
@@ -29,12 +30,14 @@ int             main(int argc, char **argv)
         ptr = asm_strchr(ptr+1,'o');
     }
 
-    /* putchar */
-    printf("\n[ORI] Retour a la ligne.");
+    /* putchar/putstr */
+    fputs("\n[ORI] Retour a la ligne.", stdout);
     putchar(c);
-    printf("[ASM] Retour a la ligne.");
+    asm_putstr("[ASM] Retour a la ligne.");
     asm_putchar(c);
-
+    
+    
+    
     return 0;
 }
 
