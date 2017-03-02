@@ -5,10 +5,13 @@ size_t          asm_strlen(const char *str);
 char            *asm_strchr(const char *str, int c);
 void            asm_putchar(char c);
 void            asm_putstr(char *str);
+int             asm_isneg(int nb);
 
 int             main(int argc, char **argv)
 {
     char        *ptr;
+    int         nb = 1;
+    int         nb_neg = -1;
     char        c = '\n';
     char        toto[]   = "Bonjour, je suis toto";
 
@@ -35,8 +38,12 @@ int             main(int argc, char **argv)
     putchar(c);
     asm_putstr("[ASM] Retour a la ligne.");
     asm_putchar(c);
-    
-    
+    asm_putchar(c);
+
+    /* isneg */
+    printf("[ASM] Is neg %d : %d\n", nb, asm_isneg(nb));
+    printf("[ASM] Is neg %d : %d\n", nb_neg, asm_isneg(nb_neg));
+    printf("[ASM] Is neg %d : %d\n", 0, asm_isneg(0));
     
     return 0;
 }
