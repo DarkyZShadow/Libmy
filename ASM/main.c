@@ -6,12 +6,13 @@ char            *asm_strchr(const char *str, int c);
 void            asm_putchar(char c);
 void            asm_putstr(char *str);
 int             asm_isneg(int nb);
+void            asm_swap(int *a, int *b);
 
 int             main(int argc, char **argv)
 {
     char        *ptr;
-    int         nb = 1;
-    int         nb_neg = -1;
+    int         nb = 111;
+    int         nb_neg = -222;
     char        c = '\n';
     char        toto[]   = "Bonjour, je suis toto";
 
@@ -43,8 +44,13 @@ int             main(int argc, char **argv)
     /* isneg */
     printf("[ASM] Is neg %d : %d\n", nb, asm_isneg(nb));
     printf("[ASM] Is neg %d : %d\n", nb_neg, asm_isneg(nb_neg));
-    printf("[ASM] Is neg %d : %d\n", 0, asm_isneg(0));
-    
+    printf("[ASM] Is neg %d : %d\n\n", 0, asm_isneg(0));
+ 
+    /* swap */
+    printf("[ASM] Nb 1 : %d\tNb2 : %d\n", nb, nb_neg);
+    asm_swap(&nb, &nb_neg);
+    printf("[ASM] Nb 1 : %d\tNb2 : %d\n\n", nb, nb_neg);
+
     return 0;
 }
 

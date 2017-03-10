@@ -4,7 +4,8 @@ SRC				=	src/asm_strchr.asm			\
 					src/asm_strlen.asm          \
                     src/asm_putchar.asm         \
                     src/asm_putstr.asm          \
-                    src/asm_isneg.asm
+                    src/asm_isneg.asm			\
+					src/asm_swap.asm
 OBJ				=	$(SRC:.asm=.o)
 FLAGS			=	-f elf64 -g
 RM				=	rm -f
