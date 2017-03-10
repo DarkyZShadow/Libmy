@@ -10,6 +10,7 @@ all         :   $(NAME)
 
 $(NAME)     :   $(OBJ)
 				$(CC) $(OBJ) $(LDFLAGS)
+				$(RM) $(OBJ)
 
 clean       :
 				$(RM) $(OBJ)

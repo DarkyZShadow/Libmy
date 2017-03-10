@@ -1,4 +1,5 @@
 #include <string.h>
+#include <stdlib.h>
 #include <stdio.h>
 
 size_t          asm_strlen(const char *str);
@@ -7,6 +8,7 @@ void            asm_putchar(char c);
 void            asm_putstr(char *str);
 int             asm_isneg(int nb);
 void            asm_swap(int *a, int *b);
+char            *asm_strcpy(char *dest, char *src);
 
 int             main(int argc, char **argv)
 {
@@ -14,6 +16,7 @@ int             main(int argc, char **argv)
     int         nb = 111;
     int         nb_neg = -222;
     char        c = '\n';
+    char        empty_str[128];
     char        toto[]   = "Bonjour, je suis toto";
 
     /* strlen */
@@ -50,6 +53,11 @@ int             main(int argc, char **argv)
     printf("[ASM] Nb 1 : %d\tNb2 : %d\n", nb, nb_neg);
     asm_swap(&nb, &nb_neg);
     printf("[ASM] Nb 1 : %d\tNb2 : %d\n\n", nb, nb_neg);
+
+    /* strcpy */
+    //asm_strcpy(empty_str, toto);
+    //printf("[ASM] %s\n", empty_str);
+    printf("[ASM] strcpy : %s = %s\n", asm_strcpy(empty_str, toto), empty_str);
 
     return 0;
 }
