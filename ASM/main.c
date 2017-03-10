@@ -11,6 +11,7 @@ void            asm_swap(int *a, int *b);
 char            *asm_strcpy(char *dest, char *src);
 char            *asm_strncpy(char *dest, char *src, size_t num);
 char            *asm_strcat(char *dest, char *src);
+char            *asm_strncat(char *dest, char *src, size_t num);
 
 int             main(int argc, char **argv)
 {
@@ -63,6 +64,7 @@ int             main(int argc, char **argv)
    
     /* strcat/strncat */
     printf("[ASM] strcat : %s = %s\n", asm_strcat(empty_str, " michou"), empty_str);
+    printf("[ASM] strncat : %s = %s\n\n", asm_strncat(empty_str, " !!!!!!", 2), empty_str);
 
     return 0;
 }
