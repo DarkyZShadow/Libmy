@@ -9,6 +9,7 @@ void            asm_putstr(char *str);
 int             asm_isneg(int nb);
 void            asm_swap(int *a, int *b);
 char            *asm_strcpy(char *dest, char *src);
+char            *asm_strncpy(char *dest, char *src, size_t num);
 
 int             main(int argc, char **argv)
 {
@@ -54,11 +55,11 @@ int             main(int argc, char **argv)
     asm_swap(&nb, &nb_neg);
     printf("[ASM] Nb 1 : %d\tNb2 : %d\n\n", nb, nb_neg);
 
-    /* strcpy */
-    //asm_strcpy(empty_str, toto);
-    //printf("[ASM] %s\n", empty_str);
+    /* strcpy/strncpy */
     printf("[ASM] strcpy : %s = %s\n", asm_strcpy(empty_str, toto), empty_str);
-
+    memset(empty_str, 0, asm_strlen(toto));
+    printf("[ASM] strncpy : %s = %s\n", asm_strncpy(empty_str, toto, 16), empty_str);
+    
     return 0;
 }
 
