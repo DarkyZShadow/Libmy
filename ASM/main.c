@@ -10,6 +10,7 @@ int             asm_isneg(int nb);
 void            asm_swap(int *a, int *b);
 char            *asm_strcpy(char *dest, char *src);
 char            *asm_strncpy(char *dest, char *src, size_t num);
+char            *asm_strcat(char *dest, char *src);
 
 int             main(int argc, char **argv)
 {
@@ -58,8 +59,11 @@ int             main(int argc, char **argv)
     /* strcpy/strncpy */
     printf("[ASM] strcpy : %s = %s\n", asm_strcpy(empty_str, toto), empty_str);
     memset(empty_str, 0, asm_strlen(toto));
-    printf("[ASM] strncpy : %s = %s\n", asm_strncpy(empty_str, toto, 16), empty_str);
-    
+    printf("[ASM] strncpy : %s = %s\n\n", asm_strncpy(empty_str, toto, 16), empty_str);
+   
+    /* strcat/strncat */
+    printf("[ASM] strcat : %s = %s\n", asm_strcat(empty_str, " michou"), empty_str);
+
     return 0;
 }
 
