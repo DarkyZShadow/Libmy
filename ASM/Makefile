@@ -1,5 +1,5 @@
 ASM				=	nasm
-NAME			=	libmy.a
+NAME			=	libasmlib.a
 SRC				=	src/asm_strchr.asm			\
 					src/asm_strlen.asm          \
                     src/asm_putchar.asm         \

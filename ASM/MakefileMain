@@ -1,16 +1,15 @@
 CC          =   gcc
-NAME        =   test
+NAME		= 	a.out
 SRC         =   main.c
 OBJ         =   $(SRC:%.c=%.o)
 RM          =   rm -f
 INCS        =   -Iinclude
-# CFLAGS      =   -W -Wall -Werror -ansi -pedantic $(INCS)
-LDFLAGS     =   -L. -lmy $(INCS)
+LDFLAGS     =   -L. -lasmlib
 
 all         :   $(NAME)
 
 $(NAME)     :   $(OBJ)
-				$(CC) $(SRC) $(LDFLAGS) -o $(NAME)
+				$(CC) $(OBJ) $(LDFLAGS)
 
 clean       :
 				$(RM) $(OBJ)
