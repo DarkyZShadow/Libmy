@@ -21,3 +21,22 @@
 ✘ asm_strdup
 ✘ asm_str_to_wordtab
 ```
+### C roadmap
+```
+✔ my_strlen
+✔ my_isneg
+✔ my_putchar
+✔ my_putstr
+✔ my_put_nbr
+✔ my_swap
+✔ my_getnbr
+✔ my_strcpy
+✔ my_strncpy
+✔ my_strcmp
+✔ my_strncmp
+✔ my_strcat
+✔ my_strncat
+✔ my_strstr
+✔ my_strdup
+✔ my_str_to_wordtab
+```
