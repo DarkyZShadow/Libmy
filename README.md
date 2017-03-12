@@ -7,9 +7,9 @@
 ✔ asm_putchar
 ✔ asm_putstr
 ✔ asm_strchr
+✔ asm_swap
 
 ✘ asm_put_nbr
-✘ asm_swap
 ✘ asm_getnbr
 ✘ asm_strcpy
 ✘ asm_strncpy
