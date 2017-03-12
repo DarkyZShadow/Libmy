@@ -12,6 +12,7 @@ char            *asm_strcpy(char *dest, char *src);
 char            *asm_strncpy(char *dest, char *src, size_t num);
 char            *asm_strcat(char *dest, char *src);
 char            *asm_strncat(char *dest, char *src, size_t num);
+int             asm_strcmp(char *s1, char *s2);
 
 int             main(int argc, char **argv)
 {
@@ -65,6 +66,11 @@ int             main(int argc, char **argv)
     /* strcat/strncat */
     printf("[ASM] strcat : %s = %s\n", asm_strcat(empty_str, " michou"), empty_str);
     printf("[ASM] strncat : %s = %s\n\n", asm_strncat(empty_str, " !!!!!!", 2), empty_str);
+
+    /* strcmp */
+    printf("[ASM] strcmp \"caca\" et \"catastrophe\" : %d\n", asm_strcmp("caca", "catastrophe"));
+    printf("[ASM] strcmp \"typhon\" et \"tournesol\" : %d\n", asm_strcmp("typhon", "tournesol"));
+    printf("[ASM] strcmp \"moi\" et \"moi\" : %d\n", asm_strcmp("moi", "moi"));
 
     return 0;
 }
