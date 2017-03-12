@@ -8,15 +8,15 @@
 ✔ asm_putstr
 ✔ asm_strchr
 ✔ asm_swap
+✔ asm_strcpy
+✔ asm_strncpy
+✔ asm_strcat
+✔ asm_strncat
 
 ✘ asm_put_nbr
 ✘ asm_getnbr
-✘ asm_strcpy
-✘ asm_strncpy
 ✘ asm_strcmp
 ✘ asm_strncmp
-✘ asm_strcat
-✘ asm_strncat
 ✘ asm_strstr
 ✘ asm_strdup
 ✘ asm_str_to_wordtab
