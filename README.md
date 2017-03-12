@@ -12,14 +12,16 @@
 ✔ asm_strncpy
 ✔ asm_strcat
 ✔ asm_strncat
+✔ asm_strcmp
+
+**?** asm_strncmp
 
 ✘ asm_put_nbr
 ✘ asm_getnbr
-✘ asm_strcmp
-✘ asm_strncmp
 ✘ asm_strstr
 ✘ asm_strdup
 ✘ asm_str_to_wordtab
+
 ```
 ### C roadmap
 ```
