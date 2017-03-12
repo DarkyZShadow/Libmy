@@ -1,5 +1,5 @@
 ;
-; void              asm_swap(int *a, int *b)
+; void              asm_swap(void *a, void *b)
 ;
 BITS 64
 
