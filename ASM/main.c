@@ -74,12 +74,6 @@ int             main(int argc, char **argv)
     printf("[ASM] strcmp \"moi\" et \"moi\" : %d\n", asm_strcmp("moi", "moi"));
     printf("[ASM] strncmp(4) \"cocorico\" et \"cocotier\" : %d\n", asm_strncmp("cocorico", "cocotier", 4));
     printf("[ASM] strncmp(5) \"cocorico\" et \"cocotier\" : %d\n", asm_strncmp("cocorico", "cocotier", 5));
-    printf("[ASM] %d\n", asm_strncmp("aaaaaa", "aaadef", 0));
-    printf("[ASM] %d\n", asm_strncmp("aaaaaa", "aaadef", 1));
-    printf("[ASM] %d\n", asm_strncmp("aaaaaa", "aaadef", 2));
-    printf("[ASM] %d\n", asm_strncmp("aaaaaa", "aaadef", 3));
-    printf("[ASM] %d\n", asm_strncmp("aaaaaa", "aaadef", 4));
-    printf("[ASM] %d\n", asm_strncmp("aaaaaa", "aaadef", 5));
 
     return 0;
 }
