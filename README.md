@@ -14,7 +14,7 @@
 ✔ asm_strncat
 ✔ asm_strcmp
 
-? asm_strncmp
+? asm_strncmp (Needs cleaning)
 
 ✘ asm_put_nbr
 ✘ asm_getnbr
