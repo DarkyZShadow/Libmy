@@ -7,12 +7,13 @@ char            *asm_strchr(const char *str, int c);
 void            asm_putchar(char c);
 void            asm_putstr(char *str);
 int             asm_isneg(int nb);
-void            asm_swap(int *a, int *b);
+void            asm_swap(void *a, void *b);
 char            *asm_strcpy(char *dest, char *src);
 char            *asm_strncpy(char *dest, char *src, size_t num);
 char            *asm_strcat(char *dest, char *src);
 char            *asm_strncat(char *dest, char *src, size_t num);
 int             asm_strcmp(char *s1, char *s2);
+int             asm_strncmp(char *s1, char *s2, size_t num);
 
 int             main(int argc, char **argv)
 {
@@ -67,10 +68,18 @@ int             main(int argc, char **argv)
     printf("[ASM] strcat : %s = %s\n", asm_strcat(empty_str, " michou"), empty_str);
     printf("[ASM] strncat : %s = %s\n\n", asm_strncat(empty_str, " !!!!!!", 2), empty_str);
 
-    /* strcmp */
-    printf("[ASM] strcmp \"caca\" et \"catastrophe\" : %d\n", asm_strcmp("caca", "catastrophe"));
+    /* strcmp/strncmp */
+    printf("[ASM] strcmp \"cacahuete\" et \"catastrophe\" : %d\n", asm_strcmp("cacahuete", "catastrophe"));
     printf("[ASM] strcmp \"typhon\" et \"tournesol\" : %d\n", asm_strcmp("typhon", "tournesol"));
     printf("[ASM] strcmp \"moi\" et \"moi\" : %d\n", asm_strcmp("moi", "moi"));
+    printf("[ASM] strncmp(4) \"cocorico\" et \"cocotier\" : %d\n", asm_strncmp("cocorico", "cocotier", 4));
+    printf("[ASM] strncmp(5) \"cocorico\" et \"cocotier\" : %d\n", asm_strncmp("cocorico", "cocotier", 5));
+    printf("[ASM] %d\n", asm_strncmp("aaaaaa", "aaadef", 0));
+    printf("[ASM] %d\n", asm_strncmp("aaaaaa", "aaadef", 1));
+    printf("[ASM] %d\n", asm_strncmp("aaaaaa", "aaadef", 2));
+    printf("[ASM] %d\n", asm_strncmp("aaaaaa", "aaadef", 3));
+    printf("[ASM] %d\n", asm_strncmp("aaaaaa", "aaadef", 4));
+    printf("[ASM] %d\n", asm_strncmp("aaaaaa", "aaadef", 5));
 
     return 0;
 }
