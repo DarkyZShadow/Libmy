@@ -13,10 +13,10 @@
 ✔ asm_strcat
 ✔ asm_strncat
 ✔ asm_strcmp
+✔ asm_putnbr
 
-? asm_strncmp (Needs cleaning)
+? asm_strncmp (Needs cleaning ?)
 
-✘ asm_put_nbr
 ✘ asm_getnbr
 ✘ asm_strstr
 ✘ asm_strdup
