@@ -10,7 +10,6 @@ asm_putchar:
     PUSH RBX
     PUSH RCX
     PUSH RDX
-
     PUSH RDI
 
     ;MOV RAX, 4      ; Sous fonction
@@ -25,7 +24,7 @@ asm_putchar:
     MOV RDX, 1      ; Length
     SYSCALL
     
-    POP RAX
+    POP RDI
     POP RDX
     POP RCX
     POP RBX

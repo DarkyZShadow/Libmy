@@ -4,7 +4,7 @@ SRC         =   main.c
 OBJ         =   $(SRC:%.c=%.o)
 RM          =   rm -f
 INCS        =   -Iinclude
-LDFLAGS     =   -L. -lasmlib
+LDFLAGS     =   -Lbin -lasmlib
 
 all         :   $(NAME)
 

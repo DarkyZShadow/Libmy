@@ -61,7 +61,15 @@ int             main(int argc, char **argv)
     printf("[ASM] strcmp \"typhon\" et \"tournesol\" : %d\n", asm_strcmp("typhon", "tournesol"));
     printf("[ASM] strcmp \"moi\" et \"moi\" : %d\n", asm_strcmp("moi", "moi"));
     printf("[ASM] strncmp(4) \"cocorico\" et \"cocotier\" : %d\n", asm_strncmp("cocorico", "cocotier", 4));
-    printf("[ASM] strncmp(5) \"cocorico\" et \"cocotier\" : %d\n", asm_strncmp("cocorico", "cocotier", 5));
+    printf("[ASM] strncmp(5) \"cocorico\" et \"cocotier\" : %d\n\n", asm_strncmp("cocorico", "cocotier", 5));
+
+    /* putnbr  */
+    printf("[ASM] putnbr de 56465161 : \n");
+    asm_putnbr(56465161);
+    printf("\n\n");
+    printf("[ASM] putnbr de -56465161 : \n");
+    asm_putnbr(-56465161);
+    printf("\n\n");
 
     return 0;
 }
