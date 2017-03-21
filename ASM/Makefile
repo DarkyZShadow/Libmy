@@ -1,5 +1,5 @@
 ASM				=	nasm
-NAME			=	libasmlib.a
+NAME			=	bin/libasmlib.a
 SRC				=	src/asm_strchr.asm			\
 					src/asm_strlen.asm          \
                     src/asm_putchar.asm         \
@@ -14,14 +14,14 @@ SRC				=	src/asm_strchr.asm			\
 					src/asm_strncmp.asm
 OBJ				=	$(SRC:.asm=.o)
 FLAGS			=	-f elf64 -g
-RM				=	rm -f
+RM				=	rm -rf
 
 all             :   $(NAME)
 
 $(NAME)			:	$(OBJ)
+					mkdir -p bin
 					ar rc $(NAME) $(OBJ)
 					ranlib $(NAME)
-					$(RM) $(OBJ)
 
 %.o : %.asm
 					$(ASM) $(FLAGS) -o $@ $<
@@ -30,7 +30,7 @@ clean			:
 					$(RM) $(OBJ)
 
 fclean			:			clean
-					$(RM) $(NAME)
+					$(RM) bin
 
 re				:	fclean all
 
