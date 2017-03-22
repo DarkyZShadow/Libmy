@@ -20,6 +20,8 @@
 ✔ asm_utoa
 ✔ asm_toupper
 ✔ asm_tolower
+✔ asm_strtoupper
+✔ asm_strtolower
 
 ✘ asm_getnbr
 ✘ asm_strstr

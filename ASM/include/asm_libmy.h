@@ -33,6 +33,8 @@ char            *asm_itoa(int nbr, char *buf, char base);
 char            *asm_utoa(unsigned int nbr, char *buf, char base);
 char            asm_toupper(char c);
 char            asm_tolower(char c);
+char            *asm_strtoupper(char *str, char *buf);
+char            *asm_strtolower(char *str, char *buf);
 
 #endif
 
