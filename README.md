@@ -13,9 +13,7 @@
 ✔ asm_strcat
 ✔ asm_strncat
 ✔ asm_strcmp
-✔ asm_putint
-✔ asm_putuint
-✔ asm_putoct
+✔ asm_putnbr
 
 ? asm_strncmp (Needs cleaning ?)
 
