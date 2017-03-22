@@ -11,7 +11,7 @@ asm_nbrlen:
     PUSH RBX
     PUSH RCX
     PUSH RDX
-    MOV RCX, -1
+    MOV RCX, 0
     CMP DL, 0               ; Check is_unsigned
     JNE _start
     CMP EDI, 0              ; Check is positive

@@ -1,5 +1,5 @@
 ;
-; void              asm_putchar(char c);
+; int               asm_putchar(char c);
 ;
 BITS 64
 
@@ -7,8 +7,8 @@ SECTION .text
 GLOBAL asm_putchar
 
 asm_putchar:
-    PUSH RBX
-    PUSH RCX
+    PUSH RSI
+    PUSH RDI
     PUSH RDX
     PUSH RDI
 
@@ -24,9 +24,9 @@ asm_putchar:
     MOV RDX, 1      ; Length
     SYSCALL
     
-    POP RDI
+    POP RAX
     POP RDX
-    POP RCX
-    POP RBX
+    POP RDI
+    POP RSI
     RET
 

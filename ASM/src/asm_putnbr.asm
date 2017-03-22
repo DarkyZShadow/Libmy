@@ -1,5 +1,5 @@
 ;
-; void              asm_putnbr(int nbr, int base, bool is_unsigned)
+; void                      asm_putnbr(int nbr, int base, bool is_unsigned)
 ;
 BITS 64
 
