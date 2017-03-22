@@ -15,6 +15,7 @@
 ✔ asm_strcmp
 ✔ asm_putint
 ✔ asm_putuint
+✔ asm_putoct
 
 ? asm_strncmp (Needs cleaning ?)
 
