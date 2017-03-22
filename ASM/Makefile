@@ -12,9 +12,7 @@ SRC				=	src/asm_strchr.asm			\
 					src/asm_strncat.asm			\
 					src/asm_strcmp.asm			\
 					src/asm_strncmp.asm         \
-                    src/asm_putint.asm          \
-                    src/asm_putuint.asm         \
-                    src/asm_putoct.asm
+                    src/asm_putnbr.asm
 OBJ				=	$(SRC:.asm=.o)
 FLAGS			=	-f elf64 -g
 RM				=	rm -rf
