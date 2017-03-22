@@ -22,6 +22,8 @@ char            *asm_strncat(char *dest, char *src, size_t num);
 int             asm_strcmp(char *s1, char *s2);
 int             asm_strncmp(char *s1, char *s2, size_t num);
 void            asm_putint(int n);
+void            asm_putuint(int n);
+void            asm_putoct(int n);
 
 #endif
 
