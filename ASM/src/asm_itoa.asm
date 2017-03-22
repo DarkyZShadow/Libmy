@@ -59,3 +59,5 @@ _end:
 
 _unsigned:
     CALL asm_utoa
+    RET
+
