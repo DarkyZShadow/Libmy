@@ -14,8 +14,8 @@
 ✔ asm_strncat
 ✔ asm_strcmp
 ✔ asm_putnbr
-
-? asm_strncmp (Needs cleaning ?)
+✔ asm_nbrlen
+✔ asm_strncmp
 
 ✘ asm_getnbr
 ✘ asm_strstr
