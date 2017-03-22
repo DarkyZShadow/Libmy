@@ -1,31 +1,18 @@
 ;
-; char                          *asm_itoa(int nbr, char *buf, char base)
+; char                          *asm_utoa(unsigned int nbr, char *buf, char base)
 ;
 BITS 64
 
 SECTION .text
-EXTERN asm_utoa
-EXTERN asm_isneg
-GLOBAL asm_itoa
+GLOBAL asm_utoa
 
-asm_itoa:
-    CMP RDX, 10                 ; Check base
-    JNE _unsigned
+asm_utoa:
     PUSH RBX
     PUSH RCX
     PUSH RDX
     PUSH RDI
+    PUSH 0
     MOV RCX, -1                 ; Init counter
-    CMP EDI, 0                  ; Check is positive
-    JNS _start
-
-_isneg:
-    INC RCX
-    MOV BYTE [RSI + RCX], 45    ; '-' char
-    IMUL EDI, -1
-
-_start:
-    PUSH 0                      ; End of string
     MOV RAX, RDI
     MOV RBX, RDX
 
@@ -57,5 +44,3 @@ _end:
     POP RBX
     RET
 
-_unsigned:
-    CALL utoa
