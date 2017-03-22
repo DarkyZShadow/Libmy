@@ -28,6 +28,7 @@ char            *asm_strncat(char *dest, char *src, size_t num);
 int             asm_strcmp(char *s1, char *s2);
 int             asm_strncmp(char *s1, char *s2, size_t num);
 void            asm_putnbr(int nbr, char base, BOOL is_unsigned);
+int             asm_nbrlen(int nbr, char base, BOOL is_unsigned);
 
 #endif
 
