@@ -17,6 +17,7 @@
 ✔ asm_nbrlen
 ✔ asm_strncmp
 ✔ asm_itoa
+✔ asm_utoa
 
 ✘ asm_getnbr
 ✘ asm_strstr
