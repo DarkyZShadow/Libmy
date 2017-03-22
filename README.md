@@ -18,6 +18,8 @@
 ✔ asm_strncmp
 ✔ asm_itoa
 ✔ asm_utoa
+✔ asm_toupper
+✔ asm_tolower
 
 ✘ asm_getnbr
 ✘ asm_strstr
