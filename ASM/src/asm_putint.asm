@@ -1,14 +1,14 @@
 ;
-; void              asm_putnbr(int nbr)
+; void              asm_putint(int nbr)
 ;
 BITS 64
 
 SECTION .text
 EXTERN asm_putchar
 EXTERN asm_isneg
-GLOBAL asm_putnbr
+GLOBAL asm_putint
 
-asm_putnbr:
+asm_putint:
     PUSH RAX
     PUSH RBX
     PUSH RDX

@@ -63,12 +63,18 @@ int             main(int argc, char **argv)
     printf("[ASM] strncmp(4) \"cocorico\" et \"cocotier\" : %d\n", asm_strncmp("cocorico", "cocotier", 4));
     printf("[ASM] strncmp(5) \"cocorico\" et \"cocotier\" : %d\n\n", asm_strncmp("cocorico", "cocotier", 5));
 
-    /* putnbr  */
-    printf("[ASM] putnbr de 56465161 : \n");
-    asm_putnbr(56465161);
-    printf("\n\n");
-    printf("[ASM] putnbr de -56465161 : \n");
-    asm_putnbr(-56465161);
+    /* putint/putuint  */
+    printf("[ASM] putint de 56465161 : \n");
+    asm_putint(56465161);
+    printf("\n");
+    printf("[ASM] putint de -56465161 : \n");
+    asm_putint(-56465161);
+    printf("\n");
+    printf("[ASM] putuint de 56465161 : \n");
+    asm_putuint(56465161);
+    printf("\n");
+    printf("[ASM] putuint de -56465161 : \n");
+    asm_putuint((unsigned int)-56465161);
     printf("\n\n");
 
     return 0;
