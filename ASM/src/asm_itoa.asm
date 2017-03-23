@@ -1,5 +1,5 @@
 ;
-; char                          *asm_itoa(int nbr, char *buf, char base)
+; char                          *asm_itoa(long nbr, char *buf, char base)
 ;
 BITS 64
 
@@ -16,13 +16,13 @@ asm_itoa:
     PUSH RDX
     PUSH RDI
     MOV RCX, -1                 ; Init counter
-    CMP EDI, 0                  ; Check is positive
+    CMP RDI, 0                  ; Check is positive
     JNS _start
 
 _isneg:
     INC RCX
     MOV BYTE [RSI + RCX], 45    ; '-' char
-    IMUL EDI, -1
+    IMUL RDI, -1
 
 _start:
     PUSH 0                      ; End of string

@@ -1,5 +1,5 @@
 ;
-; char                          *asm_utoa(unsigned int nbr, char *buf, char base)
+; char                          *asm_utoa(unsigned long nbr, char *buf, char base)
 ;
 BITS 64
 

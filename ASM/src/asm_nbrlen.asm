@@ -1,5 +1,5 @@
 ;
-; int                       asm_nbrlen(int nbr, char base, BOOL is_unsigned)
+; int                       asm_nbrlen(long nbr, char base, BOOL is_unsigned)
 ;
 BITS 64
 
@@ -14,12 +14,12 @@ asm_nbrlen:
     MOV RCX, 0
     CMP DL, 0               ; Check is_unsigned
     JNE _start
-    CMP EDI, 0              ; Check is positive
+    CMP RDI, 0              ; Check is positive
     JNS _start
 
 _isneg:
     ADD RCX, 1
-    IMUL EDI, -1
+    IMUL RDI, -1
 
 _start:
     MOV RAX, RDI

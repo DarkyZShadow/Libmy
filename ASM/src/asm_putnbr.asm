@@ -1,5 +1,5 @@
 ;
-; void                      asm_putnbr(int nbr, int base, bool is_unsigned)
+; void                      asm_putnbr(long nbr, int base, bool is_unsigned)
 ;
 BITS 64
 
@@ -14,7 +14,7 @@ asm_putnbr:
     PUSH RDX
     CMP DL, 0               ; Check is_unsigned
     JNE _start
-    CMP EDI, 0              ; Check is positive
+    CMP RDI, 0              ; Check is positive
     JNS _start
 
 _isneg:
@@ -22,7 +22,7 @@ _isneg:
     MOV RDI, 45             ; '-' char
     CALL asm_putchar
     POP RDI
-    IMUL EDI, -1
+    IMUL RDI, -1
 
 _start:
     PUSH 0                  ; End of string
