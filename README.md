@@ -1,6 +1,6 @@
 # Libmy
 
-### ASM roadmap
+### ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) ASM roadmap (WIP)
 ```
 ✔ asm_strlen
 ✔ asm_isneg
@@ -23,13 +23,16 @@
 ✔ asm_strtoupper
 ✔ asm_strtolower
 
+✘ asm_malloc
+✘ asm_free
+✘ asm_realloc
+✘ asm_allocinfo
 ✘ asm_getnbr
 ✘ asm_strstr
 ✘ asm_strdup
-✘ asm_str_to_wordtab
 ```
 
-### C roadmap
+### ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) C roadmap (deprecated)
 ```
 ✔ my_strlen
 ✔ my_isneg
