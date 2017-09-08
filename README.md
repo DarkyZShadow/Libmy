@@ -1,6 +1,7 @@
 # Libmy
 
 ### ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) ASM roadmap (WIP)
+##### NASM GNU/Linux 64 bits
 ```
 ✔ asm_strlen
 ✔ asm_isneg
@@ -33,6 +34,7 @@
 ```
 
 ### ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) C roadmap (deprecated)
+##### GCC GNU/Linux
 ```
 ✔ my_strlen
 ✔ my_isneg
