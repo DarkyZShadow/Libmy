@@ -1,11 +1,10 @@
 /*
 ** my_putstr.c for my_putstr in /home/darkyz/2_Jour03
 ** 
-** Made by SOULIE Sean
-** Login   <soulie_s@etna-alternance.net>
+** Made by DarkyZ
 ** 
-** Started on  Tue Sep 27 13:37:16 2016 SOULIE Sean
-** Last update Thu Sep 29 06:32:20 2016 SOULIE Sean
+** Started on  Tue Sep 27 13:37:16 2016
+** Last update Thu Sep 29 06:32:20 2016
 */
 
 #include "common.h"

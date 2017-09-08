@@ -1,11 +1,10 @@
 /*
 ** my_strncat.c for my_strncat in /home/darkyz/2_Jour04/master_repo
 ** 
-** Made by SOULIE Sean
-** Login   <soulie_s@etna-alternance.net>
+** Made by DarkyZ
 ** 
-** Started on  Wed Sep 28 12:43:11 2016 SOULIE Sean
-** Last update Thu Sep 29 08:16:48 2016 SOULIE Sean
+** Started on  Wed Sep 28 12:43:11 2016
+** Last update Thu Sep 29 08:16:48 2016
 */
 
 #include "common.h"

@@ -1,11 +1,10 @@
 /*
 ** my_put_nbr.c for my_put_nbr in /home/darkyz/2_Jour05/master_repo
 ** 
-** Made by SOULIE Sean
-** Login   <soulie_s@etna-alternance.net>
+** Made by DarkyZ
 ** 
-** Started on  Wed Sep 28 23:28:20 2016 SOULIE Sean
-** Last update Thu Sep 29 06:21:37 2016 SOULIE Sean
+** Started on  Wed Sep 28 23:28:20 2016
+** Last update Thu Sep 29 06:21:37 2016
 */
 
 #include "common.h"

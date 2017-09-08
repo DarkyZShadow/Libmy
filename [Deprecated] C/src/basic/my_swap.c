@@ -1,11 +1,10 @@
 /*
 ** my_swap.c for my_swap in /home/darkyz/2_Jour03/master_repo
 ** 
-** Made by SOULIE Sean
-** Login   <soulie_s@etna-alternance.net>
+** Made by DarkyZ
 ** 
-** Started on  Tue Sep 27 14:42:30 2016 SOULIE Sean
-** Last update Thu Sep 29 06:32:45 2016 SOULIE Sean
+** Started on  Tue Sep 27 14:42:30 2016
+** Last update Thu Sep 29 06:32:45 2016
 */
 
 #include "common.h"

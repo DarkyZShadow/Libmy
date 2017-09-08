@@ -1,8 +1,7 @@
 /*
 ** my_putchar.c for Libmy in /home/darkyz/Libmy/master_repo
 ** 
-** Made by SOULIE Sean
-** Login   <soulie_s@etna-alternance.net>
+** Made by DarkyZ
 **
 ** ----------------------------------------------------------------------
 **

@@ -1,11 +1,10 @@
 /*
 ** my_strncpy.c for my_strncpy in /home/darkyz/2_Jour04/master_repo
 ** 
-** Made by SOULIE Sean
-** Login   <soulie_s@etna-alternance.net>
+** Made by DarkyZ
 ** 
-** Started on  Wed Sep 28 04:10:07 2016 SOULIE Sean
-** Last update Thu Sep 29 07:09:09 2016 SOULIE Sean
+** Started on  Wed Sep 28 04:10:07 2016
+** Last update Thu Sep 29 07:09:09 2016
 */
 
 #include "common.h"

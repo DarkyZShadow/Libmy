@@ -1,11 +1,10 @@
 /*
 ** my_str_to_wordtab.c for my_str_to_wordtab in /home/darkyz/2_Jour07
 ** 
-** Made by SOULIE Sean
-** Login   <soulie_s@etna-alternance.net>
+** Made by DarkyZ
 ** 
-** Started on  Thu Sep 29 19:21:42 2016 SOULIE Sean
-** Last update Thu Sep 29 23:22:47 2016 SOULIE Sean
+** Started on  Thu Sep 29 19:21:42 2016
+** Last update Thu Sep 29 23:22:47 2016
 */
 
 #include "common.h"

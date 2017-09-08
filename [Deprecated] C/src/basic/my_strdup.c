@@ -1,11 +1,10 @@
 /*
 ** my_strdup.c for my_strdup in /home/darkyz/2_Jour07
 ** 
-** Made by SOULIE Sean
-** Login   <soulie_s@etna-alternance.net>
+** Made by DarkyZ
 ** 
-** Started on  Thu Sep 29 18:59:34 2016 SOULIE Sean
-** Last update Thu Sep 29 23:34:03 2016 SOULIE Sean
+** Started on  Thu Sep 29 18:59:34 2016
+** Last update Thu Sep 29 23:34:03 2016
 */
 
 #include "common.h"
