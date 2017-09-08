@@ -11,8 +11,7 @@ asm_strchr:
     MOV RCX, -1     ; Init counter
 
 _loop:              ; Basic while
-    INC RCX
-    
+    INC RCX 
     CMP BYTE [RDI + RCX], SIL
     JE _finded
     CMP BYTE [RDI + RCX], 0
