@@ -20,7 +20,7 @@ SRC				=	src/asm_strlen.asm          \
                     src/asm_utoa.asm            \
                     src/asm_tolower.asm         \
                     src/asm_toupper.asm         \
-                    #src/asm_strtolower.asm      \
+                    src/asm_strtolower.asm      \
                     src/asm_strtoupper.asm
 
 OBJ				=	$(SRC:.asm=.o)

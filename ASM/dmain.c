@@ -2,34 +2,36 @@
 #include <stdio.h>
 #include <dlfcn.h>
 
-int                 main(int ac, char **av)
+int                 	main(int ac, char **av)
 {
-    void            *handle;
-	char			*test_str;
-	char			*test_str2;
-	char			*test_str3;
-	char			test_chr;
-    int             res_int;
-	BOOL            res_bool;
-	char            *res_pchar;
-	asm_strlen_t	asm_strlen;
-	asm_strchr_t	asm_strchr;
-	asm_putchar_t	asm_putchar;
-	asm_putstr_t	asm_putstr;
-	asm_isneg_t		asm_isneg;
-	asm_swap_t		asm_swap;
-	asm_strcpy_t	asm_strcpy;
-	asm_strncpy_t	asm_strncpy;
-	asm_strcat_t	asm_strcat;
-	asm_strncat_t	asm_strncat;
-	asm_strcmp_t	asm_strcmp;
-	asm_strncmp_t	asm_strncmp;
-	asm_putnbr_t	asm_putnbr;
-	asm_nbrlen_t	asm_nbrlen;
-	asm_itoa_t		asm_itoa;
-	asm_utoa_t		asm_utoa;
-	asm_tolower_t	asm_tolower;
-	asm_toupper_t	asm_toupper;
+    void            	*handle;
+	char				*test_str;
+	char				*test_str2;
+	char				*test_str3;
+	char				test_chr;
+    int             	res_int;
+	BOOL            	res_bool;
+	char            	*res_pchar;
+	asm_strlen_t		asm_strlen;
+	asm_strchr_t		asm_strchr;
+	asm_putchar_t		asm_putchar;
+	asm_putstr_t		asm_putstr;
+	asm_isneg_t			asm_isneg;
+	asm_swap_t			asm_swap;
+	asm_strcpy_t		asm_strcpy;
+	asm_strncpy_t		asm_strncpy;
+	asm_strcat_t		asm_strcat;
+	asm_strncat_t		asm_strncat;
+	asm_strcmp_t		asm_strcmp;
+	asm_strncmp_t		asm_strncmp;
+	asm_putnbr_t		asm_putnbr;
+	asm_nbrlen_t		asm_nbrlen;
+	asm_itoa_t			asm_itoa;
+	asm_utoa_t			asm_utoa;
+	asm_tolower_t		asm_tolower;
+	asm_toupper_t		asm_toupper;
+	asm_strtolower_t	asm_strtolower;
+	asm_strtoupper_t	asm_strtoupper;
 
     if (!(handle = dlopen("libasmlib.so", RTLD_LAZY | RTLD_GLOBAL | RTLD_NOW)))
         return 1;
@@ -52,6 +54,8 @@ int                 main(int ac, char **av)
 	asm_utoa = dlsym(handle, "asm_utoa");
 	asm_tolower = dlsym(handle, "asm_tolower");	
 	asm_toupper = dlsym(handle, "asm_toupper");
+	asm_strtolower = dlsym(handle, "asm_strtolower");	
+	asm_strtoupper = dlsym(handle, "asm_strtoupper");
 
 	test_str = malloc(6);
 	test_str2 = malloc(6);
@@ -119,6 +123,8 @@ int                 main(int ac, char **av)
 	printf("%c", asm_toupper('!'));
 	printf("%c", asm_tolower('\n'));
 
+	printf("%s\n", asm_strtolower(test_str3, test_str2));
+	printf("%s\n", asm_strtoupper(test_str3, test_str2));
 
     return 0;
 }

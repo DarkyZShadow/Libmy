@@ -32,6 +32,8 @@ typedef char* 	(*asm_itoa_t)(long nbr, char *buf, int base);
 typedef char* 	(*asm_utoa_t)(unsigned long nbr, char *buf, int base);
 typedef char 	(*asm_tolower_t)(char c);
 typedef char 	(*asm_toupper_t)(char c);
+typedef char* 	(*asm_strtolower_t)(char *dest, const char *src);
+typedef char* 	(*asm_strtoupper_t)(char *dest, const char *src);
 
 #endif
 
