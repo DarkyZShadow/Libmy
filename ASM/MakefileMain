@@ -20,6 +20,7 @@ dyn			:	$(DOBJ)
 
 clean       :
 				$(RM) $(OBJ)
+				$(RM) $(DOBJ)
 
 fclean      :   clean
 				$(RM) $(NAME)

@@ -1,5 +1,5 @@
 ;
-; int               asm_isneg(int n)
+; BOOL               asm_isneg(long n)
 ;
 BITS 64
 
@@ -7,7 +7,7 @@ SECTION .text
 GLOBAL asm_isneg
 
 asm_isneg:
-    CMP EDI, 0
+    CMP RDI, 0
     JS _less
 
 _greater:
