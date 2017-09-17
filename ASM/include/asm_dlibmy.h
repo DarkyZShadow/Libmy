@@ -27,6 +27,7 @@ typedef char* 	(*asm_strncat_t)(char *dest, const char *src, size_t num);
 typedef int 	(*asm_strcmp_t)(const char *dest, const char *src);
 typedef int 	(*asm_strncmp_t)(const char *dest, const char *src, size_t num);
 typedef void 	(*asm_putnbr_t)(long nbr, int base, BOOL is_unsigned);
+typedef size_t 	(*asm_nbrlen_t)(long nbr, int base, BOOL is_unsigned);
 
 #endif
 

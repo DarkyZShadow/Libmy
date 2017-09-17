@@ -24,6 +24,7 @@ int                 main(int ac, char **av)
 	asm_strcmp_t	asm_strcmp;
 	asm_strncmp_t	asm_strncmp;
 	asm_putnbr_t	asm_putnbr;
+	asm_nbrlen_t	asm_nbrlen;
 
     if (!(handle = dlopen("libasmlib.so", RTLD_LAZY | RTLD_GLOBAL | RTLD_NOW)))
         return 1;
@@ -41,6 +42,7 @@ int                 main(int ac, char **av)
 	asm_strcmp = dlsym(handle, "asm_strcmp");
 	asm_strncmp = dlsym(handle, "asm_strncmp");
 	asm_putnbr = dlsym(handle, "asm_putnbr");
+	asm_nbrlen = dlsym(handle, "asm_nbrlen");
 
 	test_str = malloc(6);
 	test_str2 = malloc(6);
@@ -91,6 +93,11 @@ int                 main(int ac, char **av)
 	printf("\n");
 	asm_putnbr(42, 2, TRUE);
 	printf("\n");
+
+	printf("%d\n", asm_nbrlen(-4242, 10, TRUE));
+	printf("%d\n", asm_nbrlen(-4242, 10, FALSE));
+	printf("%d\n", asm_nbrlen(-4242, 16, TRUE));
+	printf("%d\n", asm_nbrlen(42, 2, TRUE));
 
     return 0;
 }

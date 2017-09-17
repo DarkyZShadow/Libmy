@@ -30,7 +30,7 @@ _start:
 
 _loop_begin:
     XOR RDX, RDX            ; Clear high bits of RDX (dividend)
-    IDIV RBX                ; Divide by 10
+    IDIV RBX                ; Divide by base
     PUSH RDX                ; Save remainder
     ADD BYTE [RSP], 0x30    ; Convert to printable char
     CMP BYTE [RSP], 0x39    ; Is lower than '9' char
