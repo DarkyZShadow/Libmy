@@ -8,9 +8,9 @@
 #endif
 
 #ifndef BOOL
-#define BOOL    char
-#define true    1
-#define false   0
+#define BOOL    int
+#define TRUE    1
+#define FALSE   0
 #endif
 
 

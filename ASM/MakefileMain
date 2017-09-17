@@ -7,7 +7,7 @@ OBJ         =   $(SRC:%.c=%.o)
 DOBJ        =   $(DSRC:%.c=%.o)
 RM          =   rm -f
 CFLAGS      =   -Iinclude
-LDFLAGS     =   -Lbin -lasmlib
+LDFLAGS     =   -Wl,-rpath=bin -Lbin -lasmlib
 DLDFLAGS    =   -Wl,-rpath=bin -ldl
 
 all         :   $(NAME)
