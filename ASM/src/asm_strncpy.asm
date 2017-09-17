@@ -1,5 +1,5 @@
 ;
-; char              *asm_strncpy(char *dest, char *src, size_t num);
+; char              *asm_strncpy(char *dest, const char *src, size_t num);
 ;
 BITS 64
 
