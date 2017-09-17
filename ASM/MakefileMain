@@ -1,24 +1,31 @@
 CC          =   gcc
 NAME		= 	a.out
+DNAME		=	b.out
 SRC         =   main.c
+DSRC        =   dmain.c
 OBJ         =   $(SRC:%.c=%.o)
+DOBJ        =   $(DSRC:%.c=%.o)
 RM          =   rm -f
-INCS        =   -Iinclude
-LDFLAGS     =   -Lbin -lasmlib
+CFLAGS      =   -Iinclude
+LDFLAGS     =   -Wl,-rpath=bin -Lbin -lasmlib
+DLDFLAGS    =   -Wl,-rpath=bin -ldl
 
 all         :   $(NAME)
 
 $(NAME)     :   $(OBJ)
-				$(CC) $(OBJ) $(LDFLAGS)
-				$(RM) $(OBJ)
+				$(CC) $(OBJ) $(LDFLAGS) -o $(NAME)
+
+dyn			:	$(DOBJ)
+				$(CC) $(DOBJ) $(DLDFLAGS) -o $(DNAME)
 
 clean       :
 				$(RM) $(OBJ)
+				$(RM) $(DOBJ)
 
-fclean      :           clean
+fclean      :   clean
 				$(RM) $(NAME)
 
 re          :   fclean all
 
-.PHONY      :   re
+.PHONY      :   all clean fclean re
 

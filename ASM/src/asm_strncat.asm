@@ -1,5 +1,5 @@
 ;
-; char              *asm_strncat(char *dest, char *src, size_t num);
+; char              			*asm_strncat(char *dest, const char *src, size_t num);
 ;
 BITS 64
 
@@ -10,9 +10,11 @@ GLOBAL asm_strncat
 asm_strncat:
     PUSH RCX
     PUSH RDI
-    MOV RCX, -1                 ; Init counter
-    CALL asm_strlen             ; Get first '\@' from dest
-    ADD RDI, RAX                ; Start at '\@'
+
+	MOV RBX, asm_strlen			; -fPIC
+    CALL RBX             		; Get first '\0' from dest
+    ADD RDI, RAX                ; Start at '\0'
+	MOV RCX, -1                 ; Init counter
 
 _loop:                          ; Basic loop
     INC RCX
@@ -20,7 +22,7 @@ _loop:                          ; Basic loop
     JGE _end
     MOV AL, BYTE [RSI + RCX]
     MOV BYTE [RDI + RCX], AL
-    CMP BYTE [RSI + RCX], 0     ; Wait a '\0'
+    CMP AL, 0     ; Wait a '\0'
     JNE _loop
 
 _end:

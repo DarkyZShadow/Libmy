@@ -1,5 +1,5 @@
 ;
-; int               asm_putchar(char c);
+; char               	asm_putchar(char c);
 ;
 BITS 64
 
@@ -12,16 +12,10 @@ asm_putchar:
     PUSH RDX
     PUSH RDI
 
-    ;MOV RAX, 4      ; Sous fonction
-    ;MOV RBX, 1      ; Flux (0 : stdin, 1 : stdout, 2 : stderr)
-    ;MOV RCX, RSP    ; Buffer
-    ;MOV RDX, 1      ; Length
-    ;INT 0x80
-
-    MOV RAX, 1      ; Sous fonction
-    MOV RSI, RSP    ; Pointeur vers le caractere (dans la stack)
-    MOV RDI, 1      ; Flux (0 : stdin, 1 : stdout, 2 : stderr)
-    MOV RDX, 1      ; Length
+    MOV RAX, 1      	; SYSCALL ID (sys_write)
+    MOV RSI, RSP    	; Pointer to the character (into the stack)
+    MOV RDI, 1      	; Fd (0 : stdin, 1 : stdout, 2 : stderr)
+    MOV RDX, 1      	; Length
     SYSCALL
     
     POP RAX

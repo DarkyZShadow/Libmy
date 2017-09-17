@@ -5,23 +5,22 @@ BITS 64
 
 SECTION .text
 EXTERN asm_putchar
-EXTERN asm_isneg
 GLOBAL asm_putnbr
 
 asm_putnbr:
-    PUSH RAX
     PUSH RBX
     PUSH RDX
-    CMP DL, 0               ; Check is_unsigned
+	MOV R12, asm_putchar	; -fPIC
+    CMP DL, 0               ; if (is_unsigned != FALSE)
     JNE _start
-    CMP RDI, 0              ; Check is positive
+    CMP RDI, 0              ; if (nbr >= 0)
     JNS _start
 
 _isneg:
-    PUSH RDI
+	MOV R13, RDI
     MOV RDI, 45             ; '-' char
-    CALL asm_putchar
-    POP RDI
+    CALL R12				; CALL asm_putchar
+    MOV RDI, R13
     IMUL RDI, -1
 
 _start:
@@ -31,7 +30,7 @@ _start:
 
 _loop_begin:
     XOR RDX, RDX            ; Clear high bits of RDX (dividend)
-    IDIV RBX                ; Divide by 10
+    IDIV RBX                ; Divide by base
     PUSH RDX                ; Save remainder
     ADD BYTE [RSP], 0x30    ; Convert to printable char
     CMP BYTE [RSP], 0x39    ; Is lower than '9' char
@@ -42,15 +41,15 @@ _loop_end:
     CMP RAX, 0
     JNE _loop_begin
 
-_loop_print:                ; Basic print loop
+_loop_print:                ; while (c != '\0') print(c);
     POP RDI
-    CALL asm_putchar
+    CALL R12
     CMP RDI, 0
     JNE _loop_print
 
 _end:
+	XOR RAX, RAX
     POP RDX
     POP RBX
-    POP RAX
     RET
 

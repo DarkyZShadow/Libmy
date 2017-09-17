@@ -14,6 +14,6 @@ asm_tolower:
     ADD DIL, 32         ; 'a' - 'A'
 
 _end:
-    MOVZX RAX, DIL      ; Return counter
+    MOVZX RAX, DIL      ; Return char
     RET
 

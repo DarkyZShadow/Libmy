@@ -1,24 +1,23 @@
 ;
-; int                       asm_nbrlen(long nbr, char base, BOOL is_unsigned)
+; size_t			asm_nbrlen(long nbr, int base, BOOL is_unsigned)
 ;
 BITS 64
 
 SECTION .text
-EXTERN asm_isneg
 GLOBAL asm_nbrlen
 
 asm_nbrlen:
     PUSH RBX
     PUSH RCX
     PUSH RDX
-    MOV RCX, 0
-    CMP DL, 0               ; Check is_unsigned
+    XOR RCX, RCX
+    CMP DL, 0               	; if (is_unsigned != FALSE)
     JNE _start
-    CMP RDI, 0              ; Check is positive
+    CMP RDI, 0              	; if (nbr >= 0)
     JNS _start
 
 _isneg:
-    ADD RCX, 1
+    INC RCX
     IMUL RDI, -1
 
 _start:
@@ -26,9 +25,9 @@ _start:
     MOV RBX, RSI
 
 _loop:
-    ADD RCX, 1
-    XOR RDX, RDX            ; Clear high bits of RDX (dividend)
-    IDIV RBX                ; Divide by 10
+    INC RCX
+    XOR RDX, RDX            	; Clear high bits of RDX (dividend)
+    IDIV RBX                	; Divide by base
     CMP RAX, 0
     JNE _loop
 

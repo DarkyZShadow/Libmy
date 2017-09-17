@@ -65,16 +65,16 @@ int             main(int argc, char **argv)
 
     /* putint/putuint  */
     printf("[ASM] putint de 56465161 : \n");
-    asm_putint(56465161);
+    asm_putnbr(56465161, 10, FALSE);
     printf("\n");
     printf("[ASM] putint de -56465161 : \n");
-    asm_putint(-56465161);
+    asm_putnbr(-56465161, 10, FALSE);
     printf("\n");
     printf("[ASM] putuint de 56465161 : \n");
-    asm_putuint(56465161);
+    asm_putnbr(56465161, 10, TRUE);
     printf("\n");
     printf("[ASM] putuint de -56465161 : \n");
-    asm_putuint((unsigned int)-56465161);
+    asm_putnbr((unsigned int)-56465161, 10, TRUE);
     printf("\n\n");
 
     return 0;

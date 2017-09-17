@@ -1,7 +1,9 @@
 ASM				=	nasm
+CC				=	gcc
 NAME			=	bin/libasmlib.a
-SRC				=	src/asm_strchr.asm			\
-					src/asm_strlen.asm          \
+DNAME			=	bin/libasmlib.so
+SRC				=	src/asm_strlen.asm          \
+                    src/asm_strchr.asm			\
                     src/asm_putchar.asm         \
                     src/asm_putstr.asm          \
                     src/asm_isneg.asm			\
@@ -23,7 +25,11 @@ SRC				=	src/asm_strchr.asm			\
 
 OBJ				=	$(SRC:.asm=.o)
 FLAGS			=	-f elf64 -g
+CCFLAGS			=	-shared
 RM				=	rm -rf
+
+%.o 			:   %.asm
+					$(ASM) $(FLAGS) -o $@ $<
 
 all             :   $(NAME)
 
@@ -32,16 +38,17 @@ $(NAME)			:	$(OBJ)
 					ar rc $(NAME) $(OBJ)
 					ranlib $(NAME)
 
-%.o : %.asm
-					$(ASM) $(FLAGS) -o $@ $<
+dyn				:	$(OBJ)
+					mkdir -p bin
+					$(CC) $(CCFLAGS) $(OBJ) -o $(DNAME)
 
-clean			:	
+clean			:
 					$(RM) $(OBJ)
 
-fclean			:			clean
+fclean			:	clean
 					$(RM) bin
 
 re				:	fclean all
 
-.PHONY			:	re
+.PHONY			:	dyn all re clean fclean
 

@@ -1,5 +1,5 @@
 ;
-; int             asm_strlen(char *str);
+; long              asm_strlen(char *str);
 ;
 BITS 64
 

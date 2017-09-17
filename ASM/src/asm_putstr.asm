@@ -1,5 +1,5 @@
 ;
-; void              asm_putstr(char *str);
+; void              	asm_putstr(char *str);
 ;
 BITS 64
 
@@ -12,20 +12,16 @@ asm_putstr:
     PUSH RCX
     PUSH RDX
 
-    CALL asm_strlen
+	MOV RBX, asm_strlen	; -fPIC
+    CALL RBX			; Get buffer size => RAX
 
-    ;MOV RAX, 4      ; Sous fonction
-    ;MOV RBX, 1      ; Flux (0 : stdin, 1 : stdout, 2 : stderr)
-    ;MOV RCX, RDI
-    ;MOV RDX, 26     ; Length
-    ;INT 0x80
-    
-    MOV RSI, RDI    ; Buffer
-    MOV RDX, RAX    ; Length
-    MOV RAX, 1      ; Sous fonction
-    MOV RDI, 1      ; Flux (0 : stdin, 1 : stdout, 2 : stderr)
+    MOV RSI, RDI    	; Buffer
+    MOV RDX, RAX    	; Length
+    MOV RAX, 1      	; SYSCALL ID (sys_write)
+    MOV RDI, 1      	; Flux (0 : stdin, 1 : stdout, 2 : stderr)
     SYSCALL
     
+	MOV RAX, 0
     POP RDX
     POP RCX
     POP RBX

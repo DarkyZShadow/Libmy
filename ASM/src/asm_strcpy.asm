@@ -1,5 +1,5 @@
 ;
-; char              *asm_strcpy(char *dest, char *src);
+; char              *asm_strcpy(char *dest, const char *src);
 ;
 BITS 64
 
@@ -14,7 +14,7 @@ _loop:
     INC RCX
     MOV AL, BYTE [RSI + RCX]
     MOV BYTE [RDI + RCX], AL
-    CMP BYTE [RSI + RCX], 0
+    CMP AL, 0
     JNE _loop
 
 _end:
