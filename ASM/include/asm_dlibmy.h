@@ -14,6 +14,7 @@
 
 /* Function prototypes */
 typedef BOOL 	(*asm_isneg_t)(long number);
+typedef void	(*asm_swap_t)(void *ptr1, void *ptr2);
 typedef char 	(*asm_putchar_t)(char c);
 typedef void 	(*asm_putstr_t)(const char *str);
 typedef long 	(*asm_strlen_t)(const char *str);
