@@ -7,8 +7,8 @@
 
 #ifndef BOOL
 #define BOOL    int
-#define true    1
-#define false   0
+#define TRUE    1
+#define FALSE   0
 #endif
 
 typedef unsigned long size_t;
@@ -26,6 +26,7 @@ typedef char* 	(*asm_strcat_t)(char *dest, const char *src);
 typedef char* 	(*asm_strncat_t)(char *dest, const char *src, size_t num);
 typedef int 	(*asm_strcmp_t)(const char *dest, const char *src);
 typedef int 	(*asm_strncmp_t)(const char *dest, const char *src, size_t num);
+typedef void 	(*asm_putnbr_t)(long nbr, int base, BOOL is_unsigned);
 
 #endif
 
