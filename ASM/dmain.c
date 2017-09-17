@@ -17,15 +17,11 @@ int                 main(int ac, char **av)
 	asm_putstr_t	asm_putstr;
 	asm_isneg_t		asm_isneg;
 	asm_swap_t		asm_swap;
+	asm_strcpy_t	asm_strcpy;
+	asm_strncpy_t	asm_strncpy;
 
     if (!(handle = dlopen("libasmlib.so", RTLD_LAZY | RTLD_GLOBAL | RTLD_NOW)))
         return 1;
-
-	test_str = malloc(6);
-	test_str2 = malloc(5);
-	strcpy(test_str, "Ok...");
-	strcpy(test_str2, "Hi !");
-	test_chr = '.';
 
     asm_strlen = dlsym(handle, "asm_strlen");
     asm_strchr = dlsym(handle, "asm_strchr");
@@ -33,6 +29,14 @@ int                 main(int ac, char **av)
 	asm_putstr = dlsym(handle, "asm_putstr");
 	asm_isneg = dlsym(handle, "asm_isneg");
 	asm_swap = dlsym(handle, "asm_swap");
+	asm_strcpy = dlsym(handle, "asm_strcpy");
+	asm_strncpy = dlsym(handle, "asm_strncpy");
+
+	test_str = malloc(6);
+	test_str2 = malloc(5);
+	asm_strcpy(test_str, "Ok...");
+	asm_strncpy(test_str2, "Hi !", 5);
+	test_chr = '.';
 
     res_int = asm_strlen(test_str);
     printf("%d\n", res_int);

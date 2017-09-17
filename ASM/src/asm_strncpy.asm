@@ -16,7 +16,7 @@ _loop:
     JGE _end
     MOV AL, BYTE [RSI + RCX]
     MOV BYTE [RDI + RCX], AL
-    CMP BYTE [RSI + RCX], 0
+    CMP AL, 0
     JNE _loop
 
 _end:

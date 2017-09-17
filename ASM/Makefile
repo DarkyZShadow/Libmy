@@ -8,9 +8,9 @@ SRC				=	src/asm_strlen.asm          \
                     src/asm_putstr.asm          \
                     src/asm_isneg.asm			\
 					src/asm_swap.asm			\
-					#src/asm_strcpy.asm			\
+					src/asm_strcpy.asm			\
 					src/asm_strncpy.asm			\
-					src/asm_strcat.asm			\
+					#src/asm_strcat.asm			\
 					src/asm_strncat.asm			\
 					src/asm_strcmp.asm			\
 					src/asm_strncmp.asm         \
