@@ -1,5 +1,5 @@
 ;
-; char                          *asm_utoa(unsigned long nbr, char *buf, char base)
+; char                          *asm_utoa(unsigned long nbr, char *buf, int base)
 ;
 BITS 64
 
@@ -12,13 +12,13 @@ asm_utoa:
     PUSH RDX
     PUSH RDI
     PUSH 0
-    MOV RCX, -1                 ; Init counter
+    XOR RCX, RCX                 ; Init counter
     MOV RAX, RDI
     MOV RBX, RDX
 
 _loop_begin:
     XOR RDX, RDX                ; Clear high bits of RDX (dividend)
-    IDIV RBX                    ; Divide by 10
+    IDIV RBX                    ; Divide by base
     PUSH RDX                    ; Save remainder
     ADD BYTE [RSP], 0x30        ; Convert to printable char
     CMP BYTE [RSP], 0x39        ; Is lower than '9' char
@@ -30,9 +30,9 @@ _loop_end:
     JNE _loop_begin
 
 _loop_write:                    ; Basic write loop
-    INC RCX
     POP RDI
     MOV BYTE [RSI + RCX], DIL
+	INC RCX
     CMP DIL, 0
     JNE _loop_write
 

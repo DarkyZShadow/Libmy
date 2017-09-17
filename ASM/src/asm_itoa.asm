@@ -1,15 +1,14 @@
 ;
-; char                          *asm_itoa(long nbr, char *buf, char base)
+; char                          *asm_itoa(long nbr, char *buf, int base)
 ;
 BITS 64
 
 SECTION .text
 EXTERN asm_utoa
-EXTERN asm_isneg
 GLOBAL asm_itoa
 
 asm_itoa:
-    CMP RDX, 10                 ; Check base
+    CMP RDX, 10                 ; if (base != 10)
     JNE _unsigned
     PUSH RBX
     PUSH RCX
@@ -31,7 +30,7 @@ _start:
 
 _loop_begin:
     XOR RDX, RDX                ; Clear high bits of RDX (dividend)
-    IDIV RBX                    ; Divide by 10
+    IDIV RBX                    ; Divide by base
     PUSH RDX                    ; Save remainder
     ADD BYTE [RSP], 0x30        ; Convert to printable char
     CMP BYTE [RSP], 0x39        ; Is lower than '9' char
@@ -58,6 +57,7 @@ _end:
     RET
 
 _unsigned:
-    CALL asm_utoa
+	MOV R12, asm_utoa
+    CALL R12
     RET
 

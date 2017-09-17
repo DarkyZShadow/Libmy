@@ -7,6 +7,7 @@ int                 main(int ac, char **av)
     void            *handle;
 	char			*test_str;
 	char			*test_str2;
+	char			*test_str3;
 	char			test_chr;
     int             res_int;
 	BOOL            res_bool;
@@ -25,6 +26,8 @@ int                 main(int ac, char **av)
 	asm_strncmp_t	asm_strncmp;
 	asm_putnbr_t	asm_putnbr;
 	asm_nbrlen_t	asm_nbrlen;
+	asm_itoa_t		asm_itoa;
+	asm_utoa_t		asm_utoa;
 
     if (!(handle = dlopen("libasmlib.so", RTLD_LAZY | RTLD_GLOBAL | RTLD_NOW)))
         return 1;
@@ -43,9 +46,12 @@ int                 main(int ac, char **av)
 	asm_strncmp = dlsym(handle, "asm_strncmp");
 	asm_putnbr = dlsym(handle, "asm_putnbr");
 	asm_nbrlen = dlsym(handle, "asm_nbrlen");
+	asm_itoa = dlsym(handle, "asm_itoa");	
+	asm_utoa = dlsym(handle, "asm_utoa");
 
 	test_str = malloc(6);
 	test_str2 = malloc(6);
+	test_str3 = malloc(20);
 	asm_strcpy(test_str, "Ok...");
 	asm_strncpy(test_str2, "Hi !!", 6);
 	test_chr = '.';
@@ -98,6 +104,11 @@ int                 main(int ac, char **av)
 	printf("%d\n", asm_nbrlen(-4242, 10, FALSE));
 	printf("%d\n", asm_nbrlen(-4242, 16, TRUE));
 	printf("%d\n", asm_nbrlen(42, 2, TRUE));
+
+	printf("%s\n", asm_utoa(-4242, test_str3, 10));
+	printf("%s\n", asm_itoa(-4242, test_str3, 10));
+	printf("%s\n", asm_utoa(-4242, test_str3, 16));
+	printf("%s\n", asm_utoa(42, test_str3, 2));
 
     return 0;
 }
