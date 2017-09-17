@@ -21,6 +21,8 @@ int                 main(int ac, char **av)
 	asm_strncpy_t	asm_strncpy;
 	asm_strcat_t	asm_strcat;
 	asm_strncat_t	asm_strncat;
+	asm_strcmp_t	asm_strcmp;
+	asm_strncmp_t	asm_strncmp;
 
     if (!(handle = dlopen("libasmlib.so", RTLD_LAZY | RTLD_GLOBAL | RTLD_NOW)))
         return 1;
@@ -35,6 +37,8 @@ int                 main(int ac, char **av)
 	asm_strncpy = dlsym(handle, "asm_strncpy");
 	asm_strcat = dlsym(handle, "asm_strcat");
 	asm_strncat = dlsym(handle, "asm_strncat");
+	asm_strcmp = dlsym(handle, "asm_strcmp");
+	asm_strncmp = dlsym(handle, "asm_strncmp");
 
 	test_str = malloc(6);
 	test_str2 = malloc(6);
@@ -68,6 +72,14 @@ int                 main(int ac, char **av)
 	test_str2[2] = 0;
 	asm_strncat(test_str2, test_str, 2);
 	printf("%s\n", test_str2);
+
+	printf("%d\n", asm_strcmp("", ""));
+	printf("%d\n", asm_strcmp("a", "ad"));
+	printf("%d\n", asm_strcmp("d", "a"));
+
+	printf("%d\n", asm_strncmp("", "", 10));
+	printf("%d\n", asm_strncmp("a", "ad", 1));
+	printf("%d\n", asm_strncmp("d", "a", 1));
 
     return 0;
 }

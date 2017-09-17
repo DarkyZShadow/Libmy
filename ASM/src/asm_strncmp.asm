@@ -1,5 +1,5 @@
 ;
-; int             asm_strncmp(char *s1, char *s2, size_t num);
+; int             				asm_strncmp(const char *s1, const char *s2, size_t num);
 ;
 BITS 64
 
@@ -8,34 +8,32 @@ GLOBAL asm_strncmp
 
 asm_strncmp:
     PUSH RCX
-    PUSH RDX
-    MOV RAX, 0
-    MOV RCX, -1                 ; Init counter
+    PUSH RBX
+	XOR RAX, RAX
+	XOR RBX, RBX
+    XOR RCX, RCX				; Init counter
 
-    CMP RDX, 0
+	CMP RDX, 0
+	JE _end
+	DEC RDX
+
+_loop:
+	MOVZX RAX, BYTE [RDI + RCX] ; Store s1[i]
+    MOVZX RBX, BYTE [RSI + RCX] ; Store s2[i]
+	CMP RCX, RDX				; if (i >= num)
+	JGE _end
+    CMP RAX, RBX				; if (s1[i] != s2[i])
+    JNE _end
+    CMP RAX, 0					; if (s1[i] == 0)
     JE _end
-    DEC RDX
-
-_loop:                          ; Basic while
-    INC RCX
-    CMP RCX, RDX
-    JGE _get_result
-    MOV AL, BYTE [RSI + RCX]   ; Tmp var
-    CMP BYTE [RDI + RCX], AL
-    JNE _get_result
-    CMP BYTE [RDI + RCX], 0
-    JE _get_result
-    CMP BYTE [RSI + RCX], 0
-    JE _get_result
+    CMP RBX, 0					; if (s2[i] == 0)
+    JE _end
+	INC RCX
     JMP _loop
 
-_get_result:
-    MOVZX RAX, BYTE [RDI + RCX]   ; Return difference between s1[i] and s2[i]
-    MOVZX RDX, BYTE [RSI + RCX]
-    SUB RAX, RDX
-
 _end:
-    POP RDX
+    SUB RAX, RBX				; Return difference between s1[i] and s2[i]
+    POP RBX
     POP RCX
     RET
 

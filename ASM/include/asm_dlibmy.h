@@ -24,6 +24,8 @@ typedef char* 	(*asm_strcpy_t)(char *dest, const char *src);
 typedef char* 	(*asm_strncpy_t)(char *dest, const char *src, size_t num);
 typedef char* 	(*asm_strcat_t)(char *dest, const char *src);
 typedef char* 	(*asm_strncat_t)(char *dest, const char *src, size_t num);
+typedef int 	(*asm_strcmp_t)(const char *dest, const char *src);
+typedef int 	(*asm_strncmp_t)(const char *dest, const char *src, size_t num);
 
 #endif
 
