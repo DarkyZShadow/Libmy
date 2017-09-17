@@ -28,6 +28,8 @@ int                 main(int ac, char **av)
 	asm_nbrlen_t	asm_nbrlen;
 	asm_itoa_t		asm_itoa;
 	asm_utoa_t		asm_utoa;
+	asm_tolower_t	asm_tolower;
+	asm_toupper_t	asm_toupper;
 
     if (!(handle = dlopen("libasmlib.so", RTLD_LAZY | RTLD_GLOBAL | RTLD_NOW)))
         return 1;
@@ -48,6 +50,8 @@ int                 main(int ac, char **av)
 	asm_nbrlen = dlsym(handle, "asm_nbrlen");
 	asm_itoa = dlsym(handle, "asm_itoa");	
 	asm_utoa = dlsym(handle, "asm_utoa");
+	asm_tolower = dlsym(handle, "asm_tolower");	
+	asm_toupper = dlsym(handle, "asm_toupper");
 
 	test_str = malloc(6);
 	test_str2 = malloc(6);
@@ -109,6 +113,12 @@ int                 main(int ac, char **av)
 	printf("%s\n", asm_itoa(-4242, test_str3, 10));
 	printf("%s\n", asm_utoa(-4242, test_str3, 16));
 	printf("%s\n", asm_utoa(42, test_str3, 2));
+
+	printf("%c", asm_toupper('h'));
+	printf("%c", asm_tolower('I'));
+	printf("%c", asm_toupper('!'));
+	printf("%c", asm_tolower('\n'));
+
 
     return 0;
 }

@@ -30,6 +30,8 @@ typedef void 	(*asm_putnbr_t)(long nbr, int base, BOOL is_unsigned);
 typedef size_t 	(*asm_nbrlen_t)(long nbr, int base, BOOL is_unsigned);
 typedef char* 	(*asm_itoa_t)(long nbr, char *buf, int base);
 typedef char* 	(*asm_utoa_t)(unsigned long nbr, char *buf, int base);
+typedef char 	(*asm_tolower_t)(char c);
+typedef char 	(*asm_toupper_t)(char c);
 
 #endif
 
